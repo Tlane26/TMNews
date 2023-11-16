@@ -40,7 +40,6 @@ struct ArticleRowView: View {
                 }
             }
             .frame(minHeight: 200, maxHeight: 300)
-            .background(Color.gray.opacity(0.3))
             .clipped()
             
             VStack(alignment: .leading, spacing: 8){
@@ -48,6 +47,7 @@ struct ArticleRowView: View {
                     .foregroundStyle(.red)
                 Text(article.title)
                     .font(.headline)
+                    .lineLimit(2)
                 Text(article.descriptionText)
                     .font(.subheadline)
                     .lineLimit(2)
@@ -67,7 +67,7 @@ struct ArticleRowView: View {
                     .buttonStyle(.bordered)
                 }
             }
-            .padding([.horizontal, .bottom])
+            .padding()
         }
     }
 }
@@ -76,8 +76,8 @@ struct ArticleRowView_Previews: PreviewProvider {
     static var previews: some View{
         NavigationView {
             List{
-                ArticleRowView(article: .previewData[0])
-                    .listRowInsets(.init(.init(top: 0, leading: 0, bottom: 0, trailing: 0)))
+                ArticleRowView(article: .previewData[1])
+                    .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
         }
     }

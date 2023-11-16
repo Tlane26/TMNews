@@ -11,7 +11,7 @@ import SwiftUI
 struct TMNewsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ArticleListView(articles: Article.previewData)
         }
     }
 }
