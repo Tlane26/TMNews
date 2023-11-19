@@ -9,7 +9,7 @@ import SwiftUI
 
 enum DataFetchPhase<T> {
     case empty
-    case sucess(T)
+    case success(T)
     case failure(Error)
 }
 
@@ -23,7 +23,7 @@ class ArticleNewsViewModel : ObservableObject {
     
     init(articles: [Article]? = nil, selectedCategory: Category = .general){
         if let articles = articles {
-            self.phase = .sucess(articles)
+            self.phase = .success(articles)
         }
         else{
             self.phase = .empty
@@ -35,9 +35,11 @@ class ArticleNewsViewModel : ObservableObject {
         phase = .empty
         do {
             let articles = try await newsAPI.fetch(from: selectedCategory)
-            phase = .sucess(articles)
+            phase = .success(articles)
         } catch {
+            print(error.localizedDescription)
             phase = .failure(error)
         }
+         
     }
 }
