@@ -12,6 +12,7 @@ struct NewsTabView: View {
     @StateObject var articleNewsVM = ArticleNewsViewModel()
     
     var body: some View {
+        
         NavigationStack{
             ArticleListView(articles: articles)
                 .overlay(overlayView)
@@ -26,8 +27,17 @@ struct NewsTabView: View {
                     loadTask()
                     
                 })
-                .navigationTitle(articleNewsVM.selectedCategory.text)
+                .navigationTitle("Top Stories")
                 .navigationBarItems(trailing: menu )
+                .navigationBarItems(leading: 
+                                        Image("Elogo")
+                                            .resizable()
+                                            .frame(width: 45)
+                
+                )
+                
+            
+            
         }
     }
     
@@ -66,9 +76,12 @@ struct NewsTabView: View {
                     Text($0.text).tag($0)
                 }
             }
+            .accessibilityLabel("Category Menu")
         } label: {
+            
             Image(systemName: "fiberchannel")
                 .imageScale(.large)
+                .accessibilityLabel("Category Menu")
         }
     }
 }

@@ -14,6 +14,22 @@ struct ContentView: View {
                 .tabItem {
                     Label("News", systemImage: "newspaper")
                 }
+            NewsTabView()
+                .tabItem {
+                    Label("Weekly", systemImage: "book.pages")
+                }
+            NewsTabView()
+                .tabItem {
+                    Label("Podcasts+", systemImage: "beats.headphones")
+                }
+            NewsTabView()
+                .tabItem {
+                    Label("Saved", systemImage: "bookmark")
+                }
+            NewsTabView()
+                .tabItem {
+                    Label("Explore", systemImage: "magnifyingglass")
+                }
         }
     }
 }

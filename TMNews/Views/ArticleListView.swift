@@ -15,19 +15,7 @@ struct ArticleListView: View {
     
     
     var body: some View {
-        VStack {
-            Text("otras noticias")
-            Divider()
-                .background(Color.black)
-                .padding(.horizontal, 20)
-                .accessibility(label: Text("Separator between title and articles"))
-            HStack {
-                Text("Top Stories")
-                    .fontWeight(.bold)
-                    .padding(.horizontal)
-                Spacer()
-            }
-            .padding(.bottom, 10)
+            
                 
             List{
                 ForEach(articles) { article in
@@ -44,12 +32,13 @@ struct ArticleListView: View {
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
+        /*
             .sheet(item: $selectedArticle){
                 SafariView(url: $0.articleURL)
                     .edgesIgnoringSafeArea(.bottom)
-            }
+            }*/
+        
         }
-    }
 }
 
 #Preview {
