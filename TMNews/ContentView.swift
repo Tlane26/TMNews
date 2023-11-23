@@ -31,6 +31,8 @@ struct ContentView: View {
                     Label("Explore", systemImage: "magnifyingglass")
                 }
         }
+        
+        
     }
 }
 

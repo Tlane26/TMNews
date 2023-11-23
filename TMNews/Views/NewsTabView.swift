@@ -30,7 +30,7 @@ struct NewsTabView: View {
                 .navigationTitle("Top Stories")
                 .navigationBarItems(trailing: menu )
                 .navigationBarItems(leading: 
-                                        Image("Elogo")
+                                        Image("applogo")
                                             .resizable()
                                             .frame(width: 45)
                 

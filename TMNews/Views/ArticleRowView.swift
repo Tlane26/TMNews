@@ -96,6 +96,7 @@ struct ArticleRowView: View {
                                     .padding(.horizontal, 20)
                                     .aspectRatio(contentMode: .fill)
                                 
+                                
                             case .failure:
                             HStack{
                                 Spacer()
@@ -112,23 +113,45 @@ struct ArticleRowView: View {
                     .clipped()
                     Spacer()
                 }
+                .accessibility(label: Text("New Image"))
                 
                 VStack(alignment: .leading, spacing: 8){
                     Text(article.source.name)
-                        .foregroundStyle(.red)
+                        .foregroundStyle(.colorRojo)
+                    
+                    /*
                     Text(article.title)
                         .font(.headline)
-               
+                        .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                        .padding(.bottom)
+                        
+                    
+                    Text(article.descriptionText)
+                        .font(.subheadline)
+                    */
                     if dynamicTypeSize >= .medium{
                         ScrollView{
-                            Text(article.descriptionText)
-                                .font(.subheadline)
+                                Text(article.title)
+                                    .font(.headline)
+                                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                                    .padding(.bottom)
+                                    
+                                
+                                Text(article.descriptionText)
+                                    .font(.subheadline)
                         }
+                        
                     }
                     else{
-                        Text(article.descriptionText)
-                            .font(.subheadline)
+                            Text(article.title)
+                                .font(.headline)
+                                .padding(.bottom)
+                            
+                            Text(article.descriptionText)
+                                .font(.subheadline)
+                        
                     }
+                     
                     HStack{
                         Text(article.captionText)
                             .font(.caption)
@@ -140,7 +163,7 @@ struct ArticleRowView: View {
                         } label: {
                             Image(systemName: "safari")
                                 .foregroundStyle(.black)
-                                .accessibility(label: Text("Open New In Safari Button"))
+                                .accessibility(label: Text("Open New In Safari"))
                         }
                         .buttonStyle(.bordered)
                         .sheet(isPresented: $isSafariViewPresented) {
